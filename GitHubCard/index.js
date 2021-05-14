@@ -4,13 +4,13 @@
     https://api.github.com/users/<your name>
 */
 import axios from 'axios'
-// axios
-// .get("https://api.github.com/users/anushazia")
-// .then((response) => {
-//   const responseData = response.data
-//   entryPoint.appendChild(gitHubCardMaker(responseData))
-// })
-// .catch(error => console.log(error))
+axios
+.get("https://api.github.com/users/anushazia")
+.then(response => {
+  console.log(response.data)
+  //entryPoint.appendChild(gitHubCardMaker(responseData))
+})
+.catch(error => console.log(error))
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -28,7 +28,7 @@ axios
 .get("https://api.github.com/users/anushazia")
 .then(response => {
   const userData = response.data
-  entryPoint.appendChild(gitHubCardMaker)
+  entryPoint.appendChild(gitHubCardMaker(userData))
 })
 .catch(error => console.log(error))
 
@@ -62,10 +62,11 @@ followersArray.forEach(Element => {
   axios
   .get(`https://api.github.com/users/${Element}`)
   .then(futureData => {
-    const otherUserData = futureData.data
-    entryPoint.appendChild(gitHubCardMaker)
+    const userDataFuture = futureData.data
+
+    entryPoint.appendChild(userDataFuture(userDataFuture))
   })
-  .catch(error => console.log('error'))
+  .catch(error => console.log(error))
 })
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
